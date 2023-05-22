@@ -1,0 +1,146 @@
+bash -v testing.sh
+module () {  _module_raw "$@" 2>&1
+}
+ml () {  module ml "$@"
+}
+_module_raw () {  eval `/usr/bin/tclsh8.6 /usr/lib/x86_64-linux-gnu/modulecmd.tcl bash "$@"`;
+ _mlstatus=$?;
+ return $_mlstatus
+}
+#!/bin/bash
+
+# Too many arguments:
+./querier test1 test2 test3
+Please provide pathDirectory and indexFile (2 args).
+
+# Too few arguments:
+./querier test1
+Please provide pathDirectory and indexFile (2 args).
+
+# Incorrect Page Directory
+./querier ../crawler ../../shared/tse/indices/toscrape-1.ndx
+.crawler file not found in the directory
+
+# Incorrect Index File 
+./querier ../../shared/tse/output/toscrape-1 test1.txt
+Error opening file
+# Fuzz Testing - Regression Testing of Valid Output: 
+./fuzzquery ../../shared/tse/indices/toscrape-1.ndx 10 15 | ./querier ../../shared/tse/output/toscrape-1 ../../shared/tse/indices/toscrape-1.ndx
+./fuzzquery: generating 10 queries from 2326 words
+Query: 
+Query: star navigating homo or circumcise or default or powerful
+Score - 4; Doc - 59; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/category/books/default_15/index.html
+Score - 2; Doc - 15; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/the-coming-woman-a-novel-based-on-the-life-of-the-infamous-feminist-victoria-woodhull_993/index.html
+Score - 1; Doc - 1; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/index.html
+Score - 1; Doc - 2; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/page-2.html
+Score - 1; Doc - 12; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/starving-hearts-triangular-trade-trilogy-1_990/index.html
+Score - 1; Doc - 14; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/the-boys-in-the-boat-nine-americans-and-their-epic-quest-for-gold-at-the-1936-berlin-olympics_992/index.html
+Score - 1; Doc - 23; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/category/books/crime_51/index.html
+Score - 1; Doc - 24; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/category/books/erotica_50/index.html
+Score - 1; Doc - 25; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/category/books/cultural_49/index.html
+Score - 1; Doc - 26; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/category/books/politics_48/index.html
+Score - 1; Doc - 27; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/category/books/health_47/index.html
+Score - 1; Doc - 28; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/category/books/novels_46/index.html
+Score - 1; Doc - 29; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/category/books/short-stories_45/index.html
+Score - 1; Doc - 30; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/category/books/suspense_44/index.html
+Score - 1; Doc - 31; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/category/books/christian_43/index.html
+Score - 1; Doc - 32; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/category/books/historical_42/index.html
+Score - 1; Doc - 33; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/category/books/self-help_41/index.html
+Score - 1; Doc - 34; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/category/books/academic_40/index.html
+Score - 1; Doc - 35; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/category/books/spirituality_39/index.html
+Score - 1; Doc - 36; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/category/books/contemporary_38/index.html
+Score - 1; Doc - 37; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/category/books/thriller_37/index.html
+Score - 1; Doc - 38; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/category/books/biography_36/index.html
+Score - 1; Doc - 39; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/category/books/business_35/index.html
+Score - 1; Doc - 40; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/category/books/christian-fiction_34/index.html
+Score - 1; Doc - 41; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/category/books/food-and-drink_33/index.html
+Score - 1; Doc - 42; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/category/books/history_32/index.html
+Score - 1; Doc - 43; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/category/books/horror_31/index.html
+Score - 1; Doc - 44; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/category/books/humor_30/index.html
+Score - 1; Doc - 45; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/category/books/adult-fiction_29/index.html
+Score - 1; Doc - 46; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/category/books/parenting_28/index.html
+Score - 1; Doc - 47; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/category/books/autobiography_27/index.html
+Score - 1; Doc - 48; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/category/books/psychology_26/index.html
+Score - 1; Doc - 49; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/category/books/art_25/index.html
+Score - 1; Doc - 50; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/category/books/paranormal_24/index.html
+Score - 1; Doc - 51; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/category/books/poetry_23/index.html
+Score - 1; Doc - 52; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/category/books/science_22/index.html
+Score - 1; Doc - 53; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/category/books/young-adult_21/index.html
+Score - 1; Doc - 54; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/category/books/new-adult_20/index.html
+Score - 1; Doc - 56; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/category/books/add-a-comment_18/index.html
+Score - 1; Doc - 57; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/category/books/sports-and-games_17/index.html
+Score - 1; Doc - 60; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/category/books/music_14/index.html
+Score - 1; Doc - 61; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/category/books/nonfiction_13/index.html
+Score - 1; Doc - 62; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/category/books/religion_12/index.html
+Score - 1; Doc - 63; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/category/books/childrens_11/index.html
+Score - 1; Doc - 64; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/category/books/fiction_10/index.html
+Score - 1; Doc - 65; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/category/books/womens-fiction_9/index.html
+Score - 1; Doc - 66; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/category/books/romance_8/index.html
+Score - 1; Doc - 67; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/category/books/philosophy_7/index.html
+Score - 1; Doc - 68; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/category/books/classics_6/index.html
+Score - 1; Doc - 69; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/category/books/sequential-art_5/index.html
+Score - 1; Doc - 70; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/category/books/historical-fiction_4/index.html
+Score - 1; Doc - 71; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/category/books/mystery_3/index.html
+Score - 1; Doc - 72; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/category/books/travel_2/index.html
+Score - 1; Doc - 73; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/category/books_1/index.html
+Score - 1; Doc - 55; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/category/books/fantasy_19/index.html
+Score - 1; Doc - 58; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/category/books/science-fiction_16/index.html
+--------------------------------------------------
+Query: 
+Query: girmay cultural bone
+No documents match
+--------------------------------------------------
+Query: 
+Query: after munch and quarter sadly
+No documents match
+--------------------------------------------------
+Query: 
+Query: squirmier literal happiness and import or onwhether rosenzweig
+No documents match
+--------------------------------------------------
+Query: 
+Query: diagrams
+Score - 1; Doc - 18; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/sapiens-a-brief-history-of-humankind_996/index.html
+--------------------------------------------------
+Query: 
+Query: swishing and acanthi or equal nanny babydoll electroplate
+No documents match
+--------------------------------------------------
+Query: 
+Query: charlie or vaporized narrative
+Score - 1; Doc - 64; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/category/books/fiction_10/index.html
+--------------------------------------------------
+Query: 
+Query: beecher or moon or jordan and automated and buck
+Score - 1; Doc - 5; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/mesaerion-the-best-science-fiction-stories-1800-1849_983/index.html
+Score - 1; Doc - 13; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/the-black-maria_991/index.html
+Score - 1; Doc - 72; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/category/books/travel_2/index.html
+Score - 1; Doc - 15; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/the-coming-woman-a-novel-based-on-the-life-of-the-infamous-feminist-victoria-woodhull_993/index.html
+--------------------------------------------------
+Query: 
+Query: stratagems electrocutes and lover whale and foundations or fierce
+Score - 1; Doc - 53; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/category/books/young-adult_21/index.html
+--------------------------------------------------
+Query: 
+Query: amateurs
+Score - 1; Doc - 14; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/the-boys-in-the-boat-nine-americans-and-their-epic-quest-for-gold-at-the-1936-berlin-olympics_992/index.html
+--------------------------------------------------
+Query: 
+Query: amateurs
+Score - 1; Doc - 14; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/the-boys-in-the-boat-nine-americans-and-their-epic-quest-for-gold-at-the-1936-berlin-olympics_992/index.html
+--------------------------------------------------
+
+# Direct STDIN Testing:
+echo friedman | ./querier ../../shared/tse/output/toscrape-1 ../../shared/tse/indices/toscrape-1.ndx
+Query: 
+Query: friedman
+Score - 2; Doc - 15; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/the-coming-woman-a-novel-based-on-the-life-of-the-infamous-feminist-victoria-woodhull_993/index.html
+--------------------------------------------------
+Query: 
+Query: friedman
+Score - 2; Doc - 15; URL - http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/the-coming-woman-a-novel-based-on-the-life-of-the-infamous-feminist-victoria-woodhull_993/index.html
+--------------------------------------------------
+
+# Empty STDIN Testing:
+echo | ./querier ../../shared/tse/output/toscrape-1 ../../shared/tse/indices/toscrape-1.ndx
+Query: Query:
